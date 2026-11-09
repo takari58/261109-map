@@ -21,12 +21,10 @@ navigator.geolocation.getCurrentPosition(
     function(position) {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        map.setView([lat, lng], 18);
-        updateCurrentMarker(
-            lat,
-            lng,
-            position.coords.accuracy
-        );
+        updateCurrentMarker(lat,lng,position.coords.accuracy);
+        if(!fromSearch){
+            map.setView([lat,lng],18);
+        }
     }
 );
 
@@ -45,6 +43,10 @@ const params =
 
 const targetSpot =
     params.get("spot");
+
+//目的地検索から来たか直接来たかのフラグ
+const fromSearch =
+    targetSpot !== null;
 
 const goals = [
     //カテゴリー：観光、グルメ、交通、公共施設
@@ -285,7 +287,7 @@ goals.forEach(goal => {
         targetSpot &&
         goal.name === targetSpot
     ){
-        selected=goal;
+        selectedGoal=goal;
         setTimeout(()=>{
             map.setView([goal.lat,goal.lng],18);
             marker.openPopup();
@@ -391,6 +393,10 @@ function startNavigation(goal) {
                 myLng,
                 accuracy
             );
+            if(
+                inCompassMode &&
+                !fromSearch
+            )
             if(inCompassMode){
                 map.setView(
                     [myLat,myLng],

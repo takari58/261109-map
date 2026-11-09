@@ -10,7 +10,7 @@ const map = L.map("map",{
 });
 console.log(map);
 map.touchRotate.enable();
-map.on("zoomend rotate",() => {
+mao.on("zoomend rotate",() => {
     map.invalidateSize();
 })
 
@@ -732,16 +732,19 @@ function toggleCompass(){
 }
 //コンパス処理
 function startCompass(){
+    console.log("=== startCompass()が実行されました ===");
     if(
         "ondeviceorientationabsolute"
         in window
     ){
+        console.log("A：deviceorientationabsolute");
         window.addEventListener(
             "deviceorientationabsolute",
             handleOrientation,
             true
         );
     }else{
+        console.log("B：deviceorientation")
         window.addEventListener(
             "deviceorientation",
             handleOrientation,
@@ -757,6 +760,10 @@ function normalizeAngle(angle){
    return(angle + 360) % 360; 
 }
 function handleOrientation(event){
+    console.log("センサー受信：",{
+        alpha:event.alpha,
+    });
+       
     let heading = null;
     if(event.webkitCompassHeading !==undefined){
         heading = event.webkitCompassHeading;

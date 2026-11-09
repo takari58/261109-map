@@ -9,10 +9,7 @@ body {
     height: 100%;
 }
 body {
-    font-family:
-        "Yu Gothic",
-        "Meiryo",
-        sans-serif;
+    font-family:"Yu Gothic","Meiryo",sans-serif;
     background: #f5f5f5;
     overflow: hidden;
 }
@@ -138,10 +135,7 @@ header h1 {
 }
 #map {
     width: 100%;
-    height:
-        calc(
-            100vh - 190px
-        );
+    height:calc(100vh - 190px);
     position: relative;
     z-index: 1;
 }
@@ -180,19 +174,9 @@ header h1 {
     border-radius: 50%;
     box-shadow:
         0 0 0 7px
-        rgba(
-            33,
-            150,
-            243,
-            0.25
-        ),
+        rgba(33,150,243,0.25),
         0 2px 7px
-        rgba(
-            0,
-            0,
-            0,
-            0.4
-        );
+        rgba(0,0,0,0.4);
 }
 .leaflet-popup-content {
     margin: 14px;
@@ -237,6 +221,20 @@ header h1 {
 .popup-button:active {
     transform: scale(0.98);
 }
+#compassButton{
+    position:absolute;
+    right:75px;
+    bottom:25px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    z-index:1000;
+    font-size:24px;
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.3);
+}
 #locationButton {
     position: absolute;
     right: 15px;
@@ -269,12 +267,7 @@ header h1 {
     left: 12px;
     bottom: 20px;
     z-index: 999;
-    background: rgba(
-        255,
-        255,
-        255,
-        0.95
-    );
+    background: rgba(255,255,255,0.95);
     padding: 10px;
     border-radius: 10px;
     box-shadow:

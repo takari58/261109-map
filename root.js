@@ -721,7 +721,7 @@ function toggleCompass(){
         DeviceOrientationEvent
         .requestPermission()
         .then(result=>{
-            if(resule==="granted"){
+            if(result==="granted"){
                 startCompass();
             }
         });

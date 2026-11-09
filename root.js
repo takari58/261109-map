@@ -703,7 +703,7 @@ function toggleCompass(){
     if(!inCompassMode){
         map.dragging.enable();
         map.setBearing(0);
-        window.ewmoveEventListener(
+        window.removeEventListener(
             "deviceorientation",
             handleOrientation,
             true

@@ -10,7 +10,7 @@ const map = L.map("map",{
 });
 console.log(map);
 map.touchRotate.enable();
-mao.on("zoomend rotate",() => {
+map.on("zoomend rotate",() => {
     map.invalidateSize();
 })
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>porpose-map</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>目的地検索</h1>
+        <p>あなたの目的に合った新発田のスポットを探そう！</p>
+    </header>
+    <main>
+        <section class="question">
+
+    <h2>① 新発田で何をしたい？</h2>
+    <div class="buttons purpose-buttons">
+        <button data-purpose="歴史">🏯 歴史を楽しみたい</button>
+        <button data-purpose="自然">🌿 自然を楽しみたい</button>
+        <button data-purpose="写真">📷 写真を撮りたい</button>
+        <button data-purpose="グルメ">🍴 グルメを楽しみたい</button>
+        <button data-purpose="芸術">🎨 芸術・文化を楽しみたい</button>
+        <button data-purpose="街歩き">🚶 街を歩きたい</button>
+    </div>
+</section>
+
+        <section class="question">
+            <h2>② 誰と行く？</h2>
+            <div class="buttons people-buttons">
+                <button data-people="一人">🧑 一人</button>
+                <button data-people="カップル">👫 カップル</button>
+                <button data-people="家族">👨‍👩‍👧 家族</button>
+                <button data-people="友達">👬 友達</button>
+            </div>
+        </section>
+
+        <section class="question">
+            <h2>③ どのくらい時間がある？</h2>
+            <div class="buttons time-buttons">
+                <button data-time="短時間">⏱ 1〜2時間</button>
+                <button data-time="半日">🌅 半日</button>
+                <button data-time="1日">☀️ 1日</button>
+            </div>
+        </section>
+
+        <button id="searchButton">
+            🔍 おすすめを探す
+        </button>
+
+        <section id="result">
+            <h2>⭐ あなたへのおすすめ</h2>
+
+            <div id="resultList"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+
+</body>
+</html>

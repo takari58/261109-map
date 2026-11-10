@@ -234,6 +234,7 @@ header h1 {
     font-size:24px;
     box-shadow:
         0 3px 10px rgba(0,0,0,.3);
+    cursor: pointer;
 }
 #locationButton {
     position: absolute;
@@ -259,7 +260,13 @@ header h1 {
 #locationButton:hover {
     transform: scale(1.05);
 }
+#compassButton:hover {
+    transform: scale(1.05);
+}
 #locationButton:active {
+    transform: scale(0.92);
+}
+#compassButton:active {
     transform: scale(0.92);
 }
 #legend {

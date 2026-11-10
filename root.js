@@ -762,13 +762,13 @@ function handleOrientation(event){
 
     document.getElementById("info").innerHTML =
     `
-    heading : ${heading ?? "null"}
+    heading : ${heading}
     <br>
-    alpha : ${event.alpha ?? "null"}
+    alpha : ${event.alpha}
     <br>
-    beta : ${event.beta ?? "null"}
+    beta : ${event.beta}
     <br>
-    gamma : ${event.gamma ?? "null"}
+    gamma : ${event.gamma}
     <br>
     absolute : ${event.absolute}
     `;

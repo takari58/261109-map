@@ -752,7 +752,14 @@ let firstHeading = true;
 function normalizeAngle(angle){
    return(angle + 360) % 360; 
 }
-function handleOrientation(event){
+function handleOrientation(event){ 
+    let heading = null;
+    if(event.webkitCompassHeading !==undefined){
+        heading = event.webkitCompassHeading;
+    }else if(event.alpha !== null){
+        heading = (360 - event.alpha) % 360;
+    }
+
     document.getElementById("info").innerHTML =
     `
     heading : ${heading ?? "null"}
@@ -765,13 +772,8 @@ function handleOrientation(event){
     <br>
     absolute : ${event.absolute}
     `;
-       
-    let heading = null;
-    if(event.webkitCompassHeading !==undefined){
-        heading = event.webkitCompassHeading;
-    }else if(event.alpha !== null){
-        heading = (360 - event.alpha) % 360;
-    }
+      
+
     if(heading === null){
         return;
     }

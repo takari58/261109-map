@@ -50,70 +50,6 @@ const fromSearch =
     targetSpot !== null;
 
 const goals = [
-    //カテゴリー：観光、グルメ、交通、公共施設
-    {
-        name: "新発田城跡",
-        lat: 37.954824724543,
-        lng: 139.326001834219,
-        category: "観光",
-        icon: "🏯"
-    },
-    {
-        name: "清水園",
-        lat: 37.943791,
-        lng: 139.328785,
-        category: "観光",
-        icon: "🏯"
-    },
-    {
-        name: "蔵春閣",
-        lat: 37.9438980727356,
-        lng: 139.331714246757,
-        category: "観光",
-        icon: "🏯"
-    },
-    {
-        name: "東公園のSL",
-        lat: 37.9436724880776,
-        lng: 139.332347529326,
-        category: "観光",
-        icon: "🚂"
-    },
-    {
-        name: "諏訪神社",
-        lat: 37.944214,
-        lng: 139.332004,
-        category: "観光",
-        icon: "⛩️"
-    },
-    {
-        name: "新発田市役所",
-        lat: 37.947839,
-        lng: 139.327160,
-        category: "公共施設",
-        icon: "🏢"
-    },
-    {
-        name: "王紋酒造",
-        lat: 37.94436989072327,
-        lng: 139.33066511399528,
-        category: "観光",
-        icon: "🍶"
-    },
-    {
-        name: "五十公野公園",
-        lat: 37.939869,
-        lng: 139.356680,
-        category: "観光",
-        icon: "🌳"
-    },
-    {
-        name: "五十公野森林館",
-        lat: 37.940226582923955,
-        lng: 139.35739739163068,
-        category: "グルメ",
-        icon: "🍴"
-    },
     {
         name: "カルチャーセンター",
         lat: 37.950246,
@@ -122,117 +58,13 @@ const goals = [
         icon: "🏃"
     },
     {
-        name: "新発田駅",
-        lat: 37.94413,
-        lng: 139.33510,
-        category: "交通",
-        icon: "🚉"
-    },
-    {
-        name: "あやめの湯",
-        lat: 37.953545,
-        lng: 139.3549475,
-        category: "公共施設",
-        icon: "♨️"
-    },
-    {
-        name: "イクネスしばた",
-        lat: 37.944357,
-        lng: 139.333388,
-        category: "公共施設",
-        icon: "📚"
-    },
-    {
-        name: "市民文化会館",
-        lat: 37.951722,
-        lng: 139.326564,
-        category: "公共施設",
-        icon: "🏛️"
-    },
-    {
-        name: "新発田歴史図書館",
-        lat: 37.951279909157336,
-        lng: 139.32774756292181,
-        category: "公共施設",
-        icon: "📚"
-    },
-    {
-        name: "旧新発田市役所",
-        lat: 37.950883,
-        lng: 139.327898,
-        category: "公共施設",
-        icon: "🏛️"
-    },
-    {
-        name: "新潟職能短大",
-        lat: 37.956067,
-        lng: 139.337938,
-        category: "公共施設",
-        icon: "🏫"
-    },
-    {
-        name: "菊水",
-        lat: 37.960376479226,
-        lng: 139.35429135822383,
-        category: "グルメ",
-        icon: "🍶"
-    },
-    {
-        name: "ボン・タケダ",
-        lat: 37.94039,
-        lng: 139.336,
-        category: "グルメ",
-        icon: "🍞"
-    },
-    {
-        name: "藤倉メンチカツや",
-        lat: 37.93682,
-        lng: 139.34488,
-        category: "グルメ",
-        icon: "🍴"
-    },
-    {
-        name: "いっぷく",
-        lat: 37.9443765405075,
-        lng: 139.340743962673,
-        category: "グルメ",
-        icon: "🍴"
-    },
-    {
         name: "文化洋食ino",
         lat: 37.9623641139771,
         lng: 139.334281893588,
         category: "グルメ",
         icon: "🍴"
-    },
-    {
-        name: "やすけカレー",
-        lat: 37.9377482726362,
-        lng: 139.336158926512,
-        category: "グルメ",
-        icon: "🍛"
-    },
-    {
-        name: "レストラン蒲城",
-        lat: 37.9504968436357,
-        lng: 139.339474708348,
-        category: "グルメ",
-        icon: "🍴"
-    },
-    {
-        name: "コーヒーマリーナ 煉瓦屋",
-        lat: 37.9491031178618,
-        lng: 139.324669426051,
-        category: "グルメ",
-        icon: "☕"
-    },
-    {
-        name: "パーラーやお屋",
-        lat: 37.958499803976,
-        lng: 139.342528211321,
-        category: "グルメ",
-        icon: "🍴"
     }
+    
 ];
 
 const categoryColors = {
@@ -815,6 +647,7 @@ function handleOrientation(event){
     map.setBearing(
         -smoothHeading
     );
+    console.log("bearing =",smoothHeading);
     const arrow =
         document.getElementById(
             "arrow"

@@ -803,4 +803,5 @@ function handleOrientation(event){
     if(arrow){
         arrow.style.transform = `rotate(0deg)`;
     }
+    console.log("alpha=",event.alpha,"absolute=",event.absolute);
 }

@@ -288,7 +288,7 @@ goals.forEach(goal => {
             map.setView([goal.lat,goal.lng],18);
             marker.openPopup();
             //目的地までの道案内
-            //startNavigation(goal);
+            startNavigation(goal);
         },500);
     }
     
@@ -333,7 +333,7 @@ function selectGoal(name) {
     startNavigation(goal);
 }
 
-//ナビ開始
+//ナビ開始ate
 function startNavigation(goal) {
     selectedGoal = goal;
     document
@@ -462,6 +462,7 @@ function updateCurrentMarker(lat,lng,accuracy) {
             }
         ).addTo(map);
         currentMarker.bindPopup("📍 現在地")
+        //ページを開いたときに「現在地」ポップアップを表示
         //currentMarker.openPopup();
     }
 
@@ -493,23 +494,21 @@ async function showRoute(
             !data.routes ||
             data.routes.length === 0
         ) {
-
             document
-                .getElementById("info")
-                .innerHTML = `
-                    <div class="destination-name">
-                        ${goal.icon}
-                        ${goal.name}
-                    </div>
-                    <div class="route-error">
-                        ⚠️ ルートが見つかりません
-                    </div>
-                `;
+            .getElementById("info")
+            .innerHTML = `
+                <div class="destination-name">
+                    ${goal.icon}
+                    ${goal.name}
+                </div>
+                <div class="route-error">
+                    ⚠️ ルートが見つかりません
+                </div>
+            `;
             return;
         }
 
-        const route =
-            data.routes[0];
+        const route = data.routes[0];
 
         // 古いルートを削除
         if (routeLine) {
@@ -547,9 +546,7 @@ async function showRoute(
         const walkMinutes =
             Math.max(
                 1,
-                Math.round(
-                    distanceMeter / 66.67
-                )
+                Math.round(distanceMeter / 66.67)
             );
         //自転車 15km/h
         const bicycleMinutes = 
@@ -565,8 +562,8 @@ async function showRoute(
             );
         // 情報表示
         document
-            .getElementById("info")
-            .innerHTML = `
+        .getElementById("info")
+        .innerHTML = `
             <div class="destination-name">
                 ${goal.icon}
                 ${goal.name}
@@ -586,12 +583,12 @@ async function showRoute(
     catch (error) {
         console.error(error);
         document
-            .getElementById("info")
-            .innerHTML = `
-                <div class="route-error">
-                    ⚠️ ルート検索に失敗しました
-                </div>
-            `;
+        .getElementById("info")
+        .innerHTML = `
+            <div class="route-error">
+                ⚠️ ルート検索に失敗しました
+            </div>
+        `;
     }
 }
 
@@ -621,11 +618,8 @@ categoryButtons.forEach(button => {
 
             // マーカー表示切り替え
             markers.forEach(item => {
-                const marker =
-                    item.marker;
-                const goal =
-                    item.goal;
-
+                const marker = item.marker;
+                const goal = item.goal;
                 if (
                     category === "all" ||
                     goal.category === category
@@ -734,24 +728,22 @@ function toggleCompass(){
 //コンパス処理
 function startCompass(){
     console.log("=== startCompass()が実行されました ===");
-    if(
-        "ondeviceorientationabsolute"
-        in window
-    ){
+    /*
+    if("ondeviceorientationabsolute"in window){
         console.log("A：deviceorientationabsolute");
         window.addEventListener(
             "deviceorientationabsolute",
             handleOrientation,
             true
         );
-    }else{
+    }else{*/
         console.log("B：deviceorientation")
         window.addEventListener(
             "deviceorientation",
             handleOrientation,
             true
         );
-    }
+    //}
 }
 //地図回転
 let smoothHeading = 0;
@@ -761,9 +753,18 @@ function normalizeAngle(angle){
    return(angle + 360) % 360; 
 }
 function handleOrientation(event){
-    console.log("センサー受信：",{
-        alpha:event.alpha,
-    });
+    document.getElementById("info").innerHTML =
+    `
+    heading : ${heading ?? "null"}
+    <br>
+    alpha : ${event.alpha ?? "null"}
+    <br>
+    beta : ${event.beta ?? "null"}
+    <br>
+    gamma : ${event.gamma ?? "null"}
+    <br>
+    absolute : ${event.absolute}
+    `;
        
     let heading = null;
     if(event.webkitCompassHeading !==undefined){
@@ -774,7 +775,7 @@ function handleOrientation(event){
     if(heading === null){
         return;
     }
-    if(firatHading){
+    if(firstHeading){
         smoothHeading = heading;
         firstHeading = false;
     }else{

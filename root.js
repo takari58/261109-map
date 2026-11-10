@@ -592,39 +592,50 @@ function handleOrientation(event){
         heading = (360 - event.alpha) % 360;
     }
 
+    if(heading === null){
+        return;
+    }
+
     document.getElementById("info").innerHTML =
     `
-    heading : ${
+    Heading : ${
         heading !== null
             ? heading.toFixed(2)
             : "null"
     }
     <br>
-    alpha : ${
+
+    Smooth : ${
+        smoothHeading !== undefined
+            ? smoothHeading.toFixed(2)
+            : "null"
+    }
+    <br>
+
+    Alpha : ${
         event.alpha !== null
             ? event.alpha.toFixed(2)
             : "null"
     }
     <br>
-    beta : ${
+
+    Beta : ${
         event.beta !== null
             ? event.beta.toFixed(2)
             : "null"
     }
     <br>
-    gamma : ${
+
+    Gamma : ${
         event.gamma !== null
             ? event.gamma.toFixed(2)
             : "null"
     }
     <br>
-    absolute : ${event.absolute}
-    `;
-      
 
-    if(heading === null){
-        return;
-    }
+    Absolute : ${event.absolute}
+    `;
+
     if(firstHeading){
         smoothHeading = heading;
         firstHeading = false;
@@ -646,8 +657,7 @@ function handleOrientation(event){
     }
     map.setBearing(
         -smoothHeading
-    );
-    console.log("bearing =",smoothHeading);
+    ); 
     const arrow =
         document.getElementById(
             "arrow"

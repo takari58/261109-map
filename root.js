@@ -762,13 +762,29 @@ function handleOrientation(event){
 
     document.getElementById("info").innerHTML =
     `
-    heading : ${heading.toFixed(1)}
+    heading : ${
+        heading !== null
+            ? heading.toFixed(2)
+            : "null"
+    }
     <br>
-    smooth:${smoothHeading.toFixed(1)}
+    alpha : ${
+        event.alpha !== null
+            ? event.alpha.toFixed(2)
+            : "null"
+    }
     <br>
-    bearing:${map.getBearing()}
+    beta : ${
+        event.beta !== null
+            ? event.beta.toFixed(2)
+            : "null"
+    }
     <br>
-    α : ${event.alpha?.toFixed(1)}
+    gamma : ${
+        event.gamma !== null
+            ? event.gamma.toFixed(2)
+            : "null"
+    }
     <br>
     absolute : ${event.absolute}
     `;

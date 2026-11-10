@@ -2,11 +2,11 @@ console.log("leaflet =",L);
 console.log("Bearing =",L.Map.prototype.setBearing);
 
 const map = L.map("map",{
-        maxZoom:19,
-        minZoom:5,
-        rotate:true,
-        touchRotate:true,
-        bearing:0
+    maxZoom:19,
+    minZoom:5,
+    rotate:true,
+    touchRotate:true,
+    bearing:0
 });
 console.log(map);
 map.touchRotate.enable();
@@ -237,12 +237,9 @@ const goals = [
 
 const categoryColors = {
     "観光": "#f39c12",
-    //"神社・寺": "#8e44ad",
     "グルメ": "#e74c3c",
     "交通": "#3498db",
     "公共施設": "#27ae60",
-    //"温泉": "#00a8cc"
-
 };
 
 let currentMarker = null;
@@ -284,10 +281,7 @@ goals.forEach(goal => {
     );
 
     marker.addTo(map);
-    if(
-        targetSpot &&
-        goal.name === targetSpot
-    ){
+    if(targetSpot && goal.name === targetSpot){
         selectedGoal=goal;
         setTimeout(()=>{
             console.log("目的地へ移動");
@@ -468,7 +462,7 @@ function updateCurrentMarker(lat,lng,accuracy) {
             }
         ).addTo(map);
         currentMarker.bindPopup("📍 現在地")
-        currentMarker.openPopup();
+        //currentMarker.openPopup();
     }
 
     // 2回目以降

@@ -23,6 +23,7 @@ navigator.geolocation.getCurrentPosition(
         const lng = position.coords.longitude;
         updateCurrentMarker(lat,lng,position.coords.accuracy);
         if(!fromSearch){
+            console.log("現在地へ移動");
             map.setView([lat,lng],18);
         }
     }
@@ -289,6 +290,7 @@ goals.forEach(goal => {
     ){
         selectedGoal=goal;
         setTimeout(()=>{
+            console.log("目的地へ移動");
             map.setView([goal.lat,goal.lng],18);
             marker.openPopup();
             //目的地までの道案内
@@ -393,11 +395,8 @@ function startNavigation(goal) {
                 myLng,
                 accuracy
             );
-            if(
-                inCompassMode &&
-                !fromSearch
-            )
-            if(inCompassMode){
+            if(inCompassMode && !fromSearch){
+                console.log("現在地へ移動");
                 map.setView(
                     [myLat,myLng],
                     map.getZoom(),
@@ -662,6 +661,7 @@ document
     function() {
         // 現在地がすでに取得できている
         if (currentPosition) {
+            console.log("現在地へ移動");
             map.setView([currentPosition.lat,currentPosition.lng],17);
             return;
         }
@@ -681,6 +681,7 @@ document
                     position.coords.longitude;
                 currentPosition = {lat: lat,lng: lng};
                 updateCurrentMarker(lat,lng,position.coords.accuracy);
+                console.log("現在地へ移動");
                 map.setView([lat, lng],17);
             },
             function(error) {
@@ -759,7 +760,7 @@ function startCompass(){
     }
 }
 //地図回転
-let smoothingHeading = 0;
+let smoothHeading = 0;
 let firstHeading = true;
 
 function normalizeAngle(angle){

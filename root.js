@@ -564,7 +564,7 @@ function toggleCompass(){
 }
 //コンパス処理
 function startCompass(){
-    if("ondeviceorientationabsolute"inwindow){
+    if("ondeviceorientationabsolute"in window){
         console.log("deviceoriemtationabsolute");
         window.addEventListener(
             "deviceorientationabsolute",

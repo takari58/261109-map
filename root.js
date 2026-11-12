@@ -13,6 +13,20 @@ map.touchRotate.enable();
 map.on("zoomend rotate",() => {
     map.invalidateSize();
 })
+map.om("rotatestart" , () => {
+    if(inCompassMode){
+        inCompassMode = false;
+        window.removeEventListener(
+            "deviceorientation",
+            handleOrientation,
+            true
+        );
+        map.dragging.enable();
+        document.getElementById(
+            "compassButton"
+        ).classList.remove("active");
+    }
+});
 
 console.log("touchRotate =",map.touchRotate);
 

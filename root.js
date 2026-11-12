@@ -537,7 +537,7 @@ function toggleCompass(){
         );
         window.removeEventListener(
             "deviceorientationabsolute",
-            handleOrientation
+            handleOrientation,
             true
         );
         return;

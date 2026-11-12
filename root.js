@@ -281,8 +281,8 @@ function updateCurrentMarker(lat,lng,accuracy) {
                 ⬆️
             </div>
         `,
-        iconSize: [24, 24],
-        iconAnchor: [12, 12]
+        iconSize: [30,30],
+        iconAnchor: [16,16]
     });
 
     // 初回

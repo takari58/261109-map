@@ -559,24 +559,61 @@ function toggleCompass(){
 }
 //コンパス処理
 function startCompass(){
-    console.log("=== startCompass()が実行されました ===");
-    /*
-    if("ondeviceorientationabsolute"in window){
-        console.log("A：deviceorientationabsolute");
-        window.addEventListener(
-            "deviceorientationabsolute",
-            handleOrientation,
-            true
-        );
-    }else{*/
-        console.log("B：deviceorientation")
-        window.addEventListener(
-            "deviceorientation",
-            handleOrientation,
-            true
-        );
-    //}
+
+    console.log("startCompass");
+
+    window.addEventListener(
+        "deviceorientation",
+        function(event){
+
+            console.log(
+                "イベント受信",
+                event.alpha,
+                event.beta,
+                event.gamma
+            );
+
+        },
+        true
+    );
+}function startCompass(){
+
+    console.log("startCompass");
+
+    window.addEventListener(
+        "deviceorientation",
+        function(event){
+
+            console.log(
+                "イベント受信",
+                event.alpha,
+                event.beta,
+                event.gamma
+            );
+
+        },
+        true
+    );
 }
+
+    console.log("startCompass");
+
+    window.addEventListener(
+        "deviceorientation",
+        function(event){
+
+            console.log(
+                "イベント受信",
+                event.alpha,
+                event.beta,
+                event.gamma
+            );
+
+        },
+        true
+    );
+}
+
 //地図回転
 let smoothHeading = 0;
 let firstHeading = true;

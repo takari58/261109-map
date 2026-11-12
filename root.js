@@ -564,16 +564,7 @@ function startCompass(){
 
     window.addEventListener(
         "deviceorientation",
-        function(event){
-
-            console.log(
-                "イベント受信",
-                event.alpha,
-                event.beta,
-                event.gamma
-            );
-
-        },
+        handleorientation,
         true
     );
 }function startCompass(){
@@ -635,8 +626,6 @@ function handleOrientation(event){
     Heading : ${heading.toFixed(2)}
     <br>
     Smooth : ${smoothHeading.toFixed(2)}
-    <br>
-    Delta : ${delta.toFixed(2)}
     <br>
     Alpha : ${event.alpha}
     <br>

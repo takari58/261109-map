@@ -596,23 +596,20 @@ function startCompass(){
     );
 }
 
-    console.log("startCompass");
+console.log("startCompass");
 
-    window.addEventListener(
-        "deviceorientation",
-        function(event){
-
-            console.log(
-                "イベント受信",
-                event.alpha,
-                event.beta,
-                event.gamma
-            );
-
-        },
-        true
-    );
-}
+window.addEventListener(
+    "deviceorientation",
+    function(event){
+        console.log(
+            "イベント受信",
+            event.alpha,
+            event.beta,
+            event.gamma
+        );
+    },
+    true
+);
 
 //地図回転
 let smoothHeading = 0;

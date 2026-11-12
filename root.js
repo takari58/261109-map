@@ -535,6 +535,11 @@ function toggleCompass(){
             handleOrientation,
             true
         );
+        window.removeEventListener(
+            "deviceorientationabsolute",
+            handleOrientation
+            true
+        );
         return;
     }
     if(
@@ -559,14 +564,21 @@ function toggleCompass(){
 }
 //コンパス処理
 function startCompass(){
-
-    console.log("startCompass");
-
-    window.addEventListener(
-        "deviceorientation",
-        handleOrientation,
-        true
-    );
+    if("ondeviceorientationabsolute"inwindow){
+        console.log("deviceoriemtationabsolute");
+        window.addEventListener(
+            "deviceorientationabsolute",
+            handleOrientation,
+            true
+        );
+    }else{
+        console.log("deviceorientation");
+        window.addEventListener(
+            "deviceorientation",
+            handleOrientation,
+            true
+        );
+    }
 }
 
 console.log("startCompass");
@@ -589,6 +601,8 @@ function handleOrientation(event){
     if(heading === null){
         return;
     }
+
+    console.log(event.absolute);
 
     document.getElementById("info").innerHTML =
     `

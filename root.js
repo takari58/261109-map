@@ -9,10 +9,7 @@ const map = L.map("map",{
     bearing:0
 });
 console.log(map);
-map.touchRotate.enable();
-map.on("zoomend rotate",() => {
-    map.invalidateSize();
-})
+
 map.om("rotatestart" , () => {
     if(inCompassMode){
         inCompassMode = false;
@@ -27,6 +24,11 @@ map.om("rotatestart" , () => {
         ).classList.remove("active");
     }
 });
+
+map.touchRotate.enable();
+map.on("zoomend rotate",() => {
+    map.invalidateSize();
+})
 
 console.log("touchRotate =",map.touchRotate);
 

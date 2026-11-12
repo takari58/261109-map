@@ -598,41 +598,14 @@ function handleOrientation(event){
 
     document.getElementById("info").innerHTML =
     `
-    Heading : ${
-        heading !== null
-            ? heading.toFixed(2)
-            : "null"
-    }
+    Heading : ${heading.toFixed(2)}
     <br>
-
-    Smooth : ${
-        smoothHeading !== undefined
-            ? smoothHeading.toFixed(2)
-            : "null"
-    }
+    Smooth : ${smoothHeading.toFixed(2)}
     <br>
-
-    Alpha : ${
-        event.alpha !== null
-            ? event.alpha.toFixed(2)
-            : "null"
-    }
+    Delta : ${delta.toFixed(2)}
     <br>
-
-    Beta : ${
-        event.beta !== null
-            ? event.beta.toFixed(2)
-            : "null"
-    }
+    Alpha : ${event.alpha}
     <br>
-
-    Gamma : ${
-        event.gamma !== null
-            ? event.gamma.toFixed(2)
-            : "null"
-    }
-    <br>
-
     Absolute : ${event.absolute}
     `;
 
@@ -644,7 +617,7 @@ function handleOrientation(event){
         if(delta > 180){
             delta -= 360;
         }
-        if(delta < 180){
+        if(delta < -180){
             delta += 360;
         }
         smoothHeading += delta * 0.15;

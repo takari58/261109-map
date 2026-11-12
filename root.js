@@ -10,7 +10,7 @@ const map = L.map("map",{
 });
 console.log(map);
 
-map.om("rotatestart" , () => {
+map.on("rotatestart" , () => {
     if(inCompassMode){
         inCompassMode = false;
         window.removeEventListener(

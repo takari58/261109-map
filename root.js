@@ -564,7 +564,7 @@ function startCompass(){
 
     window.addEventListener(
         "deviceorientation",
-        handleorientation,
+        handleOrientation,
         true
     );
 }

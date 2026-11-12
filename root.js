@@ -571,24 +571,6 @@ function startCompass(){
 
 console.log("startCompass");
 
-window.addEventListener(
-    "deviceorientation",
-    function(event){
-        document.getElementById("info").innerHTML =
-        `
-        Alpha : ${event.alpha}
-        <br>
-        Beta : ${event.beta}
-        <br>
-        Gamma : ${event.gamma}
-        <br>
-        Secure : ${window.isSecureContext}
-        `;
-
-    },
-    true
-);
-
 //地図回転
 let smoothHeading = 0;
 let firstHeading = true;
@@ -614,7 +596,12 @@ function handleOrientation(event){
     <br>
     Smooth : ${smoothHeading.toFixed(2)}
     <br>
-    Alpha : ${event.alpha}
+    Bearing:${map.getBearing().toFixed(2)}
+    <br>
+    Alpha : ${event.alpha != null
+            ? event.alpha.toFixed(2)
+            :null
+            }
     <br>
     Absolute : ${event.absolute}
     `;

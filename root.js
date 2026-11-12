@@ -567,24 +567,6 @@ function startCompass(){
         handleorientation,
         true
     );
-}function startCompass(){
-
-    console.log("startCompass");
-
-    window.addEventListener(
-        "deviceorientation",
-        function(event){
-
-            console.log(
-                "イベント受信",
-                event.alpha,
-                event.beta,
-                event.gamma
-            );
-
-        },
-        true
-    );
 }
 
 console.log("startCompass");

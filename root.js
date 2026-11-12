@@ -574,12 +574,17 @@ console.log("startCompass");
 window.addEventListener(
     "deviceorientation",
     function(event){
-        console.log(
-            "イベント受信",
-            event.alpha,
-            event.beta,
-            event.gamma
-        );
+        document.getElementById("info").innerHTML =
+        `
+        Alpha : ${event.alpha}
+        <br>
+        Beta : ${event.beta}
+        <br>
+        Gamma : ${event.gamma}
+        <br>
+        Secure : ${window.isSecureContext}
+        `;
+
     },
     true
 );

@@ -10,20 +10,30 @@ const map = L.map("map",{
 });
 console.log(map);
 
-map.on("rotatestart" , () => {
-    if(inCompassMode){
-        inCompassMode = false;
-        window.removeEventListener(
-            "deviceorientation",
-            handleOrientation,
-            true
-        );
-        map.dragging.enable();
-        document.getElementById(
-            "compassButton"
-        ).classList.remove("active");
+map.getContainer().addEventListener(
+    "touchstart",
+    function(event){
+        if(
+            event.touches.length >= 2 &&
+            inCompassMode
+        ){
+            inCompassMode = false;
+            window.removeEventListener(
+                "deviceorientation",
+                handleOrientation,
+                true
+            );
+            window.removeEventListener(
+                "deviceorientationabsolute",
+                handleOrientation,
+                true
+            );
+            console.log(
+                "2本指操作でコンパス解除"
+            );
+        }
     }
-});
+);
 
 map.touchRotate.enable();
 map.on("zoomend rotate",() => {

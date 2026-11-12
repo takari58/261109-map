@@ -120,7 +120,7 @@ goals.forEach(goal => {
             map.setView([goal.lat,goal.lng],18);
             marker.openPopup();
             //目的地までの道案内
-            //startNavigation(goal);
+            startNavigation(goal);
         },500);
     }
     
